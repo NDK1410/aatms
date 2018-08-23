@@ -1,0 +1,296 @@
+/* Show */
+.course
+{
+	width: 100%;
+	padding-bottom: 100px;
+	background: #FFFFFF;
+}
+.course_container
+{
+	width: 100%;
+}
+.course_title
+{
+	font-family: 'Roboto Slab', serif;
+	font-size: 36px;
+	font-weight: 700;
+	color: #384158;
+}
+.course_
+{
+	margin-top: 21px;
+	width: 100%;
+}
+.course_image img
+{
+	max-width: 100%;
+}
+.course_tabs_container
+{
+	width: 100%;
+	margin-top: 30px;
+}
+.tab
+{
+	height: 40px;
+	background: #f2f4f5;
+	font-size: 16px;
+	color: #384158;
+	font-weight: 500;
+	line-height: 40px;
+	text-align: center;
+	text-transform: uppercase;
+	cursor: pointer;
+	margin-right: 10px;
+	padding-left: 21px;
+	padding-right: 20px;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+
+.tab.active,
+.tab:hover
+{
+	background: #14bdee;
+	color: #FFFFFF;
+}
+.tab_panels
+{
+	
+}
+.tab_panel
+{
+	display: none !important;
+	width: 100%;
+	height: 100%;
+	-webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+    border: solid 1px #ebebeb;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    padding-bottom: 25px;
+}
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+.tab_panel.active
+{
+	display: block !important;
+}
+
+.tab_panel_title
+{
+	font-family: 'Roboto Slab', serif;
+	font-size: 20px;
+	font-weight: 700;
+	color: #384158;
+}
+.tab_panel_text
+{
+	margin-top: 10px;
+}
+.tab_panel_text p
+{
+	font-size: 16px;
+	font-weight: 400;
+	color: #76777a;
+	line-height: 1.75;
+}
+
+/* Index */
+.courses
+{
+	width: 100%;
+	padding-bottom: 100px;
+}
+
+.courses_row
+{
+	margin-top: 25px;
+}
+.course_col
+{
+	margin-bottom: 51px;
+}
+
+.course
+{
+	width: 100%;
+	border-radius: 6px;
+	background: #FFFFFF;
+	box-shadow: 0px 1px 10px rgba(29,34,47,0.1);
+}
+.course_col:nth-child(odd)
+{
+	padding-right: 30px;
+}
+.course_col:nth-child(even)
+{
+	padding-left: 30px;
+}
+.course_image
+{
+	width: 100%;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+.course_image img
+{
+	max-width: 100%;
+	height: 350px;
+}
+.course_body
+{
+	padding-top: 22px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 23px;
+}
+.course_title
+{
+
+}
+.course_title a
+{
+	font-family: 'Roboto Slab', serif;
+	font-size: 20px;
+	color: #384158;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.course_title a:hover
+{
+	color: #14bdee;
+}
+
+.course_teacher
+{
+	font-size: 15px;
+	font-weight: 400;
+	color: #384158;
+	margin-top: 6px;
+}
+.course_text
+{
+	margin-top: 13px;
+}
+
+.moretext span {
+  display: none;
+}
+
+.links {
+  display: block;
+}
+
+.course_footer
+{
+	padding-left: 30px;
+	padding-right: 30px;
+}
+.course_footer_content
+{
+	width: 100%;
+	border-top: solid 1px #e5e5e5;
+	padding-top: 9px;
+	padding-bottom: 11px;
+}
+.course_info
+{
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 400;
+	color: #55555a;
+}
+.course_info:first-child
+{
+	margin-right: 18px;
+}
+.course_info i
+{
+	color: #ffc80a;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #14bdee;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #14bdee;
+    color: white;
+}

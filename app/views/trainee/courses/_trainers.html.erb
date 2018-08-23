@@ -1,0 +1,4 @@
+<h3><%= @course.trainers.count %> Trainers</h3>
+<% @trainer_of_courses.each do |trainer_of_course| %>
+  <p><%= trainer_of_course.name %></p>
+<%end%>

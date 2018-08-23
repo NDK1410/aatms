@@ -8,7 +8,8 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  config.secret_key = Figaro.env.secret_key
+  # config.secret_key = Figaro.env.secret_key
+  config.secret_key = 'f671c9422d8a8270bd727a13b9f244f19029f5aef8531c5a54c0c77dfb68d658cd792e954f99591960ac55ac0db0c004b8724d5523f60fe9bc9e4b319267da8e'
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'

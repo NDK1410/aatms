@@ -1,0 +1,5 @@
+<% @course_subjects.each do |course_subject| %>
+  <h2><%= course_subject.subject.name%></h2>
+  <p><%= course_subject.subject.instruction %></p>
+  <hr>
+<% end %>

@@ -1,0 +1,5 @@
+database:
+  sqlpassword: "duykhanh94"
+initializers:
+  devise:
+    secret_key: "f671c9422d8a8270bd727a13b9f244f19029f5aef8531c5a54c0c77dfb68d658cd792e954f99591960ac55ac0db0c004b8724d5523f60fe9bc9e4b319267da8e"
