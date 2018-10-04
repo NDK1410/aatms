@@ -3,7 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.1'
 
-
 gem "config"
 gem 'rails', '~> 5.2.0'
 gem 'mysql2'

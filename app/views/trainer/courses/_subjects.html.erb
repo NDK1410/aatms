@@ -1,3 +1,5 @@
+<div class="tab_panel_content">
+<div class="tab_panel_text">
 <% @course.course_subjects.each do |course_subject| %>
   <%= render partial: "trainer/course_subjects/change_status" , locals: {course_subject: course_subject } %>
   <div id="subject-<%=course_subject.id%>">
@@ -6,3 +8,5 @@
   </div>
   <hr>
 <% end %>
+</div>
+</div>

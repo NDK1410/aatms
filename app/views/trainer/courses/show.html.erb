@@ -9,24 +9,17 @@
   <i class="fa fa-check-circle" style="font-size:25px;color:green"></i>
 <% end %>
 <div class="super_container">
-  <div class="course">
+  <div>
     <div class="container">
       <div class="row">
         <div class="course_title"><%= @course.name %></div>
         <div class="course_image"><%= image_tag @course.image_url.to_s %></div>
-        <div class="course_info"><%= raw @course.description%></div>
+        <div class="course_info"></div>
         <div class="course_tabs_container">
-          <div class="tabs d-flex flex-row align-items-center justify-content-start">
-            <div class="tab active">Subjects</div>
-          </div>
           <div class="tab_panels">
             <div class="tab_panel active">
-              <div class="tab_panel_title"></div>
-              <div class="tab_panel_content">
-                <div class="tab_panel_text">
+                <%= render "description" %>
                 <%= render "subjects" %>
-                </div>
-              </div>
               <button id="myBtn"><div class="course_info">
                     <i class="fa fa-graduation-cap" aria-hidden="true" , href="index.html"></i>
                     <span><%= @course.trainers.count + @course.trainees.count %> Members</span>
@@ -45,7 +38,6 @@
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>

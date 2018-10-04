@@ -7,7 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application' %>ss
+    <%= javascript_pack_tag 'application' %>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,22 +28,16 @@
   </head>
 
   <body>
+    <%= render 'layouts/header' if (trainee_signed_in? or trainer_signed_in?) %>
     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-      <div class="container-wrap">
-        <div>
-          <% if trainee_signed_in? %>
-            <li><%= link_to "logout", destroy_trainee_session_path, method: :delete %></li>
-            <%= render "layouts/left_bar" %>
-          <% end %>
-          <% if trainer_signed_in? %>
-            <li><%= link_to "logout", destroy_trainer_session_path, method: :delete %></li>
-            <%= render "layouts/left_bar" %>
-          <% end %>
-          <div id="colorlib-main">
+    <div class="clearfix" style="padding-top: 40px;"></div>
+    <div class="container-wrap">
+      <div>
+      <%= render 'layouts/left_bar' if (trainee_signed_in? or trainer_signed_in?) %>
+        <div id="colorlib-main">
           <%= yield %>
-          </div>
         </div>
+      </div>
     </div>
   </body>
 </html>

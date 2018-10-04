@@ -6,26 +6,22 @@
 <!--      <div class="col-lg-8">
           <div class="course_container"> -->
             <div class="course_title"><%= @course.name %></div>
-
             <!-- Course Image -->
             <div class="course_image"><%= image_tag @course.image_url.to_s %></div>
-            <div class="course_info"><%= raw @course.description%></div>
+            <div class="course_info"></div>
             <!-- Course Tabs -->
             <div class="course_tabs_container">
-              <div class="tabs d-flex flex-row align-items-center justify-content-start">
-                <div class="tab active">Subjects</div>
-                <!-- <div class="tab">Subjects</div>
-                <div class="tab">Documents</div> -->
-              </div>
               <div class="tab_panels">
                 <!-- Description -->
                 <div class="tab_panel active">
                   <div class="tab_panel_title"></div>
                   <div class="tab_panel_content">
                     <div class="tab_panel_text">
-                    <%= render "subjects" %>
+                    <h3><%= @course.description %></h3>
+                    <hr>
                     </div>
                   </div>
+                  <%= render "subjects" %>
                   <!-- list trainee n trainer -->
                   <!-- Trigger/Open The Modal -->
                   <button id="myBtn"><div class="course_info">
@@ -48,9 +44,6 @@
                       </div>
                     </div>
                   </div>
-
-								
-
               </div>
             </div>
       </div>

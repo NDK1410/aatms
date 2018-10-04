@@ -4,54 +4,39 @@
       <%= link_to "List Subjects", constructor_subjects_path, class:"btn btn-info" %>
       <%= link_to "New Course", new_trainer_course_path, class:"btn btn-primary" %>
       <div class="row">
-<!--      <div class="col-lg-8">
-          <div class="courses_container">
-            <div class="row courses_row"> -->
-              <!-- Course -->
-              <% @courses.each do |course| %>
-              <div class="col-lg-6 course_col">
-                <div class="course">
-                  <div class="course_image"><%= link_to (image_tag course.image_url.to_s), trainer_course_path(course) %></div>
-                  <div class="course_body">
-                    <h3 class="course_title"><%= link_to course.name, trainer_course_path(course) %></h3>
-                    <div class="course_teacher"> Trainer: <%= course.trainers.name %></div>
-                    <hr>
-                    <div class="course_text">
-                      <div class="lesstext">
-                        <p><%= truncate strip_tags(course.description), length: 80 %></p>
-                      </div>
-                      <div class="moretext">
-                        <span>
-                          <p><%= strip_tags(course.description) %></p>
-                        </span>
-                        <%= link_to "More", "#", class: "links" %>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="course_footer">
-                    <div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
-                      <div class="course_info">
-                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                        <span><%= course.trainers.count + course.trainees.count %> Members</span>
-                      </div>
-                    </div>
-                    <% if course.start? %>
-                      <%= link_to course.status, trainer_course_finish_course_path(course.id),:method => :patch, class: "btn btn-primary" %>
-                    <% elsif course.training? %>
-                      <button type="button" class="btn btn-warning"><%=course.status %> ... </button>
-                      <%= link_to "Finish", trainer_course_finish_course_path(course.id),:method => :patch, class: "btn btn-success" %>
-                    <% else %>
-                      <button type="button" class="btn btn-danger"><%= course.status %>ED </button>
-                      <i class="fa fa-check-circle" style="font-size:25px;color:green"></i>
-                    <% end %>
-                  </div>
+        <!-- Course -->
+        <% @courses.each do |course| %>
+        <div class="col-lg-6 course_col">
+          <div class="course">
+            <div class="course_image"><%= link_to (image_tag course.image_url.to_s), trainer_course_path(course) %></div>
+            <div class="course_body">
+              <h3 class="course_title"><%= link_to course.name, trainer_course_path(course) %></h3>
+              <hr>
+              <div class="course_text">
+              <p><%= truncate(course.description, length: 209) %></p>
+              <!-- <p><%= course.description %></p> -->
+              </div>
+            </div>
+            <div class="course_footer">
+              <div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
+                <div class="course_info">
+                  <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                  <span><%= course.trainers.count + course.trainees.count %> Members</span>
                 </div>
               </div>
-              <%end%>
-
-<!--          </div>
+              <% if course.start? %>
+                <%= link_to course.status, trainer_course_finish_course_path(course.id),:method => :patch, class: "btn btn-primary" %>
+              <% elsif course.training? %>
+                <button type="button" class="btn btn-warning"><%=course.status %> ... </button>
+                <%= link_to "Finish", trainer_course_finish_course_path(course.id),:method => :patch, class: "btn btn-success" %>
+              <% else %>
+                <button type="button" class="btn btn-danger"><%= course.status %>ED </button>
+                <i class="fa fa-check-circle" style="font-size:25px;color:green"></i>
+              <% end %>
+            </div>
           </div>
-        </div> -->
+        </div>
+        <%end%>
       </div>
     </div>
   </div>

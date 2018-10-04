@@ -32,6 +32,7 @@ class Trainer::CoursesController < ApplicationController
   end
 
   def show
+    course_of_trainer = CourseTrainer.find_by trainer_id: current_trainer.id, course_id: params[:id]
     redirect_to root_url and return unless @course
   end
 
