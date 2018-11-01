@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :signed_in?
   before_action :notifications, only: [:show]
-    before_action :set_current_trainee
+  before_action :set_current_trainee
   #   check_authorization :unless => :devise_controller?
   # rescue_from CanCan::AccessDenied do |exception|
   #   render :file => "/public/404.html", :status => 404, :layout => false
@@ -39,4 +39,5 @@ class ApplicationController < ActionController::Base
     def set_current_trainee
       Trainee.current = current_trainee
     end
+
 end

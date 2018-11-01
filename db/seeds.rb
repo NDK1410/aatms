@@ -46,14 +46,17 @@ trainer2 = Trainer.create! name: "Mr.Viet",
 # Create Course
 course1 = Course.create! name: "Ruby on Rails",
   description: "Ruby on Rails or Rails is a server-side web application framework written in Ruby under the MIT License. Rails is a model–view–controller (MVC) framework, providing default structures for a database, a web service, and web pages. It encourages and facilitates the use of web standards such as JSON or XML for data transfer, and HTML, CSS and JavaScript for display and user interfacing. In addition to MVC, Rails emphasizes the use of other well-known software engineering patterns and paradigms, including convention over configuration (CoC), don't repeat yourself (DRY), and the active record pattern",
-  image: "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/beach01.jpg"
+  image: "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/beach01.jpg",
+  status: "start"
 # Create Trainer Course
 trainer_course1 = CourseTrainer.create course_id: course1.id,
   trainer_id: trainer1.id
 
 # Create Course Trainee
 course_trainee1 = CourseTrainee.create! course_id: course1.id,
-  trainee_id: trainee2.id
+  trainee_id: trainee2.id,
+  start_date: "15/10/2018",
+  finish_date: "25/5/2019"
 
 # Create Subject
 subject1 = Subject.create! name: "Ruby",
@@ -152,69 +155,85 @@ subject_id: subject4.id
 #Ruby
 course_subject_task1 = CourseSubjectTask.create! course_subject_id: course_subject1.id,
   task_id: task1.id,
+  task_name: task1.name,
   task_instruction: "The Basic of Ruby Language"
 
 course_subject_task2 = CourseSubjectTask.create! course_subject_id: course_subject1.id,
   task_id: task2.id,
+  task_name: task2.name,
   task_instruction: "The Advance of Ruby Language"
 
 course_subject_task3 = CourseSubjectTask.create! course_subject_id: course_subject1.id,
   task_id: task3.id,
+  task_name: task3.name,
   task_instruction: "The Advance of Ruby Language"
 
 course_subject_task4 = CourseSubjectTask.create! course_subject_id: course_subject1.id,
   task_id: task4.id,
+  task_name: task4.name,
   task_instruction: "The Advance of Ruby Language"
 
 #Rails
 course_subject_task5 = CourseSubjectTask.create! course_subject_id: course_subject2.id,
   task_id: task5.id,
+  task_name: task5.name,
   task_instruction: "The Basic of Ruby Language"
 
 course_subject_task6 = CourseSubjectTask.create! course_subject_id: course_subject2.id,
   task_id: task6.id,
+  task_name: task6.name,
   task_instruction: "The Advance of Ruby Language"
 
 course_subject_task7 = CourseSubjectTask.create! course_subject_id: course_subject2.id,
   task_id: task7.id,
+  task_name: task7.name,
   task_instruction: "The Advance of Ruby Language"
 
 course_subject_task8 = CourseSubjectTask.create! course_subject_id: course_subject2.id,
   task_id: task8.id,
+  task_name: task8.name,
   task_instruction: "The Advance of Ruby Language"
 
 #Mysql
 course_subject_task9 = CourseSubjectTask.create! course_subject_id: course_subject3.id,
   task_id: task9.id,
+  task_name: task9.name,
   task_instruction: "The Basic of Ruby Language"
 
 course_subject_task10 = CourseSubjectTask.create! course_subject_id: course_subject3.id,
   task_id: task10.id,
+  task_name: task10.name,
   task_instruction: "The Advance of Ruby Language"
 
 course_subject_task11 = CourseSubjectTask.create! course_subject_id: course_subject3.id,
   task_id: task11.id,
+  task_name: task11.name,
   task_instruction: "The Advance of Ruby Language"
 
 course_subject_task12 = CourseSubjectTask.create! course_subject_id: course_subject3.id,
   task_id: task12.id,
+  task_name: task12.name,
   task_instruction: "The Advance of Ruby Language"
 
 #Front-end
 course_subject_task13 = CourseSubjectTask.create! course_subject_id: course_subject4.id,
   task_id: task13.id,
+  task_name: task13.name,
   task_instruction: "The Basic of Ruby Language"
 
 course_subject_task14 = CourseSubjectTask.create! course_subject_id: course_subject4.id,
   task_id: task14.id,
+  task_name: task14.name,
   task_instruction: "The Advance of Ruby Language"
 
 course_subject_task15 = CourseSubjectTask.create! course_subject_id: course_subject4.id,
   task_id: task15.id,
+  task_name: task15.name,
   task_instruction: "The Advance of Ruby Language"
 
 course_subject_task16 = CourseSubjectTask.create! course_subject_id: course_subject4.id,
   task_id: task16.id,
+  task_name: task16.name,
   task_instruction: "The Advance of Ruby Language"
 
 # Create Trainee Tasks
@@ -223,82 +242,172 @@ course_subject_task16 = CourseSubjectTask.create! course_subject_id: course_subj
 trainee_task1 = TraineeTask.create! trainee_id: trainee2.id,
   course_subject_task_id: course_subject_task1.id,
   trainee_subject_id: trainee_subject1.id,
-  task_id: task1.id
+  task_id: task1.id,
+  status: "finish"
 
 trainee_task2 = TraineeTask.create! trainee_id: trainee2.id,
   course_subject_task_id: course_subject_task2.id,
   trainee_subject_id: trainee_subject1.id,
-  task_id: task2.id
+  task_id: task2.id,
+  status: "finish"
 
 trainee_task3 = TraineeTask.create! trainee_id: trainee2.id,
   course_subject_task_id: course_subject_task3.id,
   trainee_subject_id: trainee_subject1.id,
-  task_id: task3.id
+  task_id: task3.id,
+  status: "pending"
 
 trainee_task4 = TraineeTask.create! trainee_id: trainee2.id,
   course_subject_task_id: course_subject_task4.id,
   trainee_subject_id: trainee_subject1.id,
-  task_id: task4.id
+  task_id: task4.id,
+  status: "pending"
 
 # Rails
 trainee_task5 = TraineeTask.create! trainee_id: trainee2.id,
   course_subject_task_id: course_subject_task5.id,
   trainee_subject_id: trainee_subject2.id,
-  task_id: task5.id
+  task_id: task5.id,
+  status: "pending"
 
 trainee_task6 = TraineeTask.create! trainee_id: trainee2.id,
   course_subject_task_id: course_subject_task6.id,
   trainee_subject_id: trainee_subject2.id,
-  task_id: task6.id
+  task_id: task6.id,
+  status: "pending"
 
 trainee_task7 = TraineeTask.create! trainee_id: trainee2.id,
   course_subject_task_id: course_subject_task7.id,
   trainee_subject_id: trainee_subject2.id,
-  task_id: task7.id
+  task_id: task7.id,
+  status: "pending"
 
 trainee_task8 = TraineeTask.create! trainee_id: trainee2.id,
   course_subject_task_id: course_subject_task8.id,
   trainee_subject_id: trainee_subject2.id,
-  task_id: task8.id
+  task_id: task8.id,
+  status: "pending"
 
 # Mysql
 trainee_task9 = TraineeTask.create! trainee_id: trainee2.id,
   course_subject_task_id: course_subject_task9.id,
   trainee_subject_id: trainee_subject3.id,
-  task_id: task9.id
+  task_id: task9.id,
+  status: "pending"
 
 trainee_task10 = TraineeTask.create! trainee_id: trainee2.id,
   course_subject_task_id: course_subject_task10.id,
   trainee_subject_id: trainee_subject3.id,
-  task_id: task10.id
+  task_id: task10.id,
+  status: "pending"
 
 trainee_task11 = TraineeTask.create! trainee_id: trainee2.id,
   course_subject_task_id: course_subject_task11.id,
   trainee_subject_id: trainee_subject3.id,
-  task_id: task11.id
+  task_id: task11.id,
+  status: "pending"
 
 trainee_task12 = TraineeTask.create! trainee_id: trainee2.id,
   course_subject_task_id: course_subject_task12.id,
   trainee_subject_id: trainee_subject3.id,
-  task_id: task12.id
+  task_id: task12.id,
+  status: "pending"
 
 # Front-end
 trainee_task13 = TraineeTask.create! trainee_id: trainee2.id,
   course_subject_task_id: course_subject_task13.id,
   trainee_subject_id: trainee_subject4.id,
-  task_id: task13.id
+  task_id: task13.id,
+  status: "pending"
 
 trainee_task14 = TraineeTask.create! trainee_id: trainee2.id,
   course_subject_task_id: course_subject_task14.id,
   trainee_subject_id: trainee_subject4.id,
-  task_id: task14.id
+  task_id: task14.id,
+  status: "pending"
 
 trainee_task15 = TraineeTask.create! trainee_id: trainee2.id,
   course_subject_task_id: course_subject_task15.id,
   trainee_subject_id: trainee_subject4.id,
-  task_id: task15.id
+  task_id: task15.id,
+  status: "pending"
 
 trainee_task16 = TraineeTask.create! trainee_id: trainee2.id,
   course_subject_task_id: course_subject_task16.id,
   trainee_subject_id: trainee_subject4.id,
-  task_id: task16.id
+  task_id: task16.id,
+  status: "pending"
+
+#Schedules
+schedule1 = Schedule.create!  date: "Wednesday, 20/04/2017",
+shift:"Monday: 18:00 - 21:00",
+title:"From zero to deploy n A toy app",
+trainer_name:"Mr.Chu Anh Tuan",
+subject_id: subject1.id,
+course_id: course1.id
+schedule2 = Schedule.create!  date:"Wednesday, 20/04/2017",
+shift:"Tuesday: 18:00 - 21:00",
+title:"OOP Class n Object",
+trainer_name:"Mr.Chu Anh Tuan",
+subject_id: subject1.id,
+course_id: course1.id
+schedule3 = Schedule.create!  date:"Wednesday, 20/04/2017",
+shift:"Wednesday: 18:00 - 21:00",
+title:"Filling in the layout n Modeling users",
+trainer_name:"Mr.Chu Anh Tuan",
+subject_id: subject1.id,
+course_id: course1.id
+schedule4 = Schedule.create!  date:"Wednesday, 20/04/2017",
+shift:"Thursday: 18:00 - 21:00",
+title:"From zero to deploy n A toy app",
+trainer_name:"Mr.Chu Anh Tuan",
+subject_id: subject2.id,
+course_id: course1.id
+schedule5 = Schedule.create!  date:"Wednesday, 20/04/2017",
+shift:"Friday: 18:00 - 21:00",
+title:"OOP Class n Object",
+trainer_name:"Mr.Chu Anh Tuan",
+subject_id: subject2.id,
+course_id: course1.id
+schedule6 = Schedule.create!  date:"Wednesday, 17/11/2018",
+shift:"Monday: 18:00 - 21:00",
+title:"Filling in the layout n Modeling users",
+trainer_name:"Mr.Chu Anh Tuan",
+subject_id: subject2.id,
+course_id: course1.id
+schedule7 = Schedule.create!  date:"Wednesday, 18/11/2018",
+shift:"Tuesday: 18:00 - 21:00",
+title:"From zero to deploy n A toy app",
+trainer_name:"Mr.Chu Anh Tuan",
+subject_id: subject3.id,
+course_id: course1.id
+schedule8 = Schedule.create!  date:"Wednesday, 19/11/2018",
+shift:"Wednesday: 18:00 - 21:00",
+title:"OOP Class n Object",
+trainer_name:"Mr.Chu Anh Tuan",
+subject_id: subject3.id,
+course_id: course1.id
+schedule9 = Schedule.create!  date:"Wednesday, 20/11/2018",
+shift:"Thursday: 18:00 - 21:00",
+title:"Filling in the layout n Modeling users",
+trainer_name:"Mr.Chu Anh Tuan",
+subject_id: subject3.id,
+course_id: course1.id
+schedule10 = Schedule.create!  date:"Wednesday, 21/11/2018",
+shift:"Friday: 18:00 - 21:00",
+title:"From zero to deploy n A toy app",
+trainer_name:"Mr.Chu Anh Tuan",
+subject_id: subject4.id,
+course_id: course1.id
+schedule11 = Schedule.create!  date:"Wednesday, 22/11/2018",
+shift:"Monday: 18:00 - 21:00",
+title:"OOP Class n Object",
+trainer_name:"Mr.Chu Anh Tuan",
+subject_id: subject4.id,
+course_id: course1.id
+schedule12 = Schedule.create!  date:"Wednesday, 23/11/2018",
+shift:"Tuesday: 18:00 - 21:00",
+title:"Filling in the layout n Modeling users",
+trainer_name:"Mr.Chu Anh Tuan",
+subject_id: subject4.id,
+course_id: course1.id

@@ -1,0 +1,44 @@
+<style type="text/css">
+  #text {
+    text-align: center }
+</style>
+<div id="text", class="container">
+  <h2><%= @trainning_course.name %></h2>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th class="col-md-1", id="text"><%= t(".number") %></th>
+          <th class="col-md-1", id="text"><%= t(".date") %></th>
+          <th class="col-md-3", id="text"><%= t(".day_time") %></th>
+          <th class="col-md-4", id="text"><%= t(".title") %></th>
+          <th class="col-md-1", id="text"><%= t(".subject") %></th>
+          <th class="col-md-2", id="text"><%= t(".trainer") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @course_schedules.each_with_index do |course_schedule, index| %>
+          <% if course_schedule.date.strftime(t(".time_default")) == @today %>
+            <tr class="table-danger", id="text">
+              <td><%= index + 1 %></td>
+              <td><%= course_schedule.date.strftime(t(".time_default")) %></td>
+              <td><%= course_schedule.shift %></td>
+              <td><%= course_schedule.title %></td>
+              <td><%= course_schedule.subject.name %></td>
+              <td><%= course_schedule.trainer_name %></td>
+            </tr>
+          <%else%>
+            <tr id="text">
+              <td><%= index + 1 %></td>
+              <td><%= course_schedule.date.strftime(t(".time_default")) %></td>
+              <td><%= course_schedule.shift %></td>
+              <td><%= course_schedule.title %></td>
+              <td><%= course_schedule.subject.name %></td>
+              <td><%= course_schedule.trainer_name %></td>
+            </tr>
+          <%end%>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</div>

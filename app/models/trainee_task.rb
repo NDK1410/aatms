@@ -5,6 +5,8 @@ class TraineeTask < ApplicationRecord
   belongs_to :course_subject_task
   belongs_to :trainee_subject
   enum status: {pending: 0 ,finish: 1}
+  scope :checked_task,->  (trainee_task_ids){ where id: trainee_task_ids}
+  scope :update_status, -> { update status: 1 }
 
   def self.build_trainee_tasks(course_subject)
   	course_subject.trainee_subjects.each do |trainee_subject|

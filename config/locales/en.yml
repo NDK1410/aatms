@@ -6,7 +6,15 @@ en:
     courses:
       show:
         member: " Members"
-  trainer:
+    schedule:
+      index:
+        time_default: "%d/%m/%Y"
+        number: "Num"
+        title: "Title"
+        date: "Date"
+        day_time: "Time"
+        subject: "Subject"
+        trainer: "Trainer"
     assign_trainees:
       assign_trainees:
         assgin_trainees: "Assign Trainees"
@@ -34,3 +42,9 @@ en:
         email: "Email"
         status: "Status"
         x: "[X]"
+  profiles:
+    show:
+      trainning_course: "Tranning Course: "
+      task_finish_status: "finish"
+      task_pending_status: "pending"
+      time_default: "%d/%m/%Y"

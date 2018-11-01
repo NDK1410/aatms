@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   devise_for :trainees, :skip => [:registrations]
   devise_for :trainers, :skip => [:registrations]
+  resources :profiles, only: [:index, :show, :update]
   namespace :trainee do
   	resources :courses, only:[:show] do
+      resources :schedule, only:[:index]
   		resources :subjects, only:[:index, :show, :update]
   	end
   end

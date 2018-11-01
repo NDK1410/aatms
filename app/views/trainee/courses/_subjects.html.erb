@@ -1,6 +1,6 @@
 <% @course_subjects.each do |course_subject| %>
   <h2><%= link_to course_subject.subject.name, trainee_course_subject_path(@course, course_subject.subject) %>
   </h2>
-    <p><%= truncate(course_subject.subject.instruction, length: 90) %></p>
+    <p><%= truncate(course_subject.subject.instruction, length: 235) %></p>
   <hr>
 <% end %>

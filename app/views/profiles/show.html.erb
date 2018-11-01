@@ -1,0 +1,37 @@
+<div class="container">
+  <h1><%= t(".trainning_course") %> <%= @course.name %></h1>
+  <div class="course_image"><%= image_tag @course.image_url.to_s %></div>
+  <% @course.course_trainees.each do |course_trainee| %>
+  <h3><%= course_trainee.start_date.strftime(t(".time_default")) %> - <%= course_trainee.finish_date.strftime(t(".time_default")) %></h3>
+  <%end%>
+  <%= form_tag profile_path, method: :put, remote: true do |f| %>
+  <div class="panel-group" id="accordion">
+  <% @trainee_subjects.each do |trainee_subject| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1-<%= trainee_subject.id%>">
+          <%= trainee_subject.subject.name %></a>
+        </h4>
+      </div>
+      <div id="collapse1-<%= trainee_subject.id%>" class="panel-collapse collapse in">
+        <% trainee_subject.trainee_tasks.each do |trainee_task| %>
+          <div class="panel-body">
+            <%= trainee_task.task.name %>
+            <div style="float: right">
+              <%if trainee_task.status == t(".task_finish_status") %>
+                <span class="label label-danger"><%= trainee_task.status%></span>
+              <%elsif trainee_task.status == t(".task_pending_status") %>
+                 <%= check_box_tag "[trainee_task_ids][]", trainee_task.id %>
+                <span class="label label-primary"><%= trainee_task.status %></span>
+              <%end%>
+            </div>
+          </div>
+        <%end%>
+      </div>
+    </div>
+  <%end%>
+  </div>
+  <%= button_tag "Update", class: "btn btn-primary", remote: true %>
+  <%end%>
+</div>

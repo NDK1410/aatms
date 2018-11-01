@@ -3,8 +3,10 @@ class StaticPagesController < ApplicationController
 
   def home
   	if current_trainee
-      current_course = CourseTrainee.find_by trainee_id: current_trainee.id
-	  	redirect_to trainee_course_path(current_course.course) if current_course.course.training?
+      @trainee_courses = CourseTrainee.of_trainee(current_trainee)
+      @trainee_courses.each do |trainee_course|
+	  	  redirect_to trainee_course_path(trainee_course.course) if trainee_course.course.start?
+      end
     elsif current_trainer
       redirect_to trainer_courses_path
   	end
@@ -16,4 +18,4 @@ class StaticPagesController < ApplicationController
       redirect_to new_trainee_session_path
     end
   end
-end
+end 

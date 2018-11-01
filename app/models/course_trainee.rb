@@ -2,9 +2,10 @@ class CourseTrainee < ApplicationRecord
 	after_create_commit :notify
   belongs_to :trainee
   belongs_to :course
-  has_many :trainee_subject, dependent: :destroy
+  has_many :trainee_subjects, dependent: :destroy
   has_many :notification_statuses, dependent: :destroy
-
+  scope :of_trainee,-> (trainee_id){ where trainee_id: trainee_id}
+  # scope :of_trainee, lambda { |trainee| where(:trainee_id => trainee.id) }
   private
   def notify
     ActiveRecord::Base.transaction do

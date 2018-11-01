@@ -1,8 +1,10 @@
 <div class="header" >
   <% if trainee_signed_in? %>
     <li><%= link_to "logout", destroy_trainee_session_path, method: :delete, class: "link_to" %></li>
+    <%if params[:action] == "show"%>
   	<li><%= render partial: 'notifications/notification_center' , locals:{notifications: @notifications , notifications_unread: @notifications_unread,
         current_course: @current_course} %></li>
+    <%end%>
     <%= render "layouts/left_bar" %>
   <% elsif trainer_signed_in? %>
     <li><%= link_to "logout", destroy_trainer_session_path, method: :delete,class: "link_to" %></li>
@@ -12,7 +14,7 @@
     <%= render "layouts/left_bar" %>
   <% end %>
 </div>
-<% if trainee_signed_in? %>
+<% if trainee_signed_in? && params[:action] == "show" %>
     <script type="text/javascript">
         $(document).ready(function()
     {
