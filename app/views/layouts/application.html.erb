@@ -11,9 +11,11 @@
     <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js", 'data-turbolinks-track' => true %>
 
     <meta charset="UTF-8">
+    <meta name="description" content="Awesome Academy">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <link rel="icon" type="image/png" href="/assets/favicon.ico"/>
-    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/animate.css">
     <link rel="stylesheet" type="text/css" href="/assets/hamburgers.min.css">
@@ -21,27 +23,24 @@
     <link rel="stylesheet" type="text/css" href="/assets/util.css">
     <link rel="stylesheet" type="text/css" href="/assets/main.css">
     <link rel="shortcut icon" href="favicon.ico">
-	  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
-	  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/assets/courses.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/courses.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/courses_responsive.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/course.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/course_responsive.css">
   </head>
 
   <body>
-        <% if trainee_signed_in? || trainer_signed_in? %>
-    <%= render "layouts/header" %>
-    <%#p class="notice"><%= notice %></p>
-    <%#p class="alert"><%= alert %></p>
-    <div class="container-wrap">
-      <div>
-          <div id="colorlib-main">
-          <%= yield %>
-          </div>
-        <% else %>
-          <%= yield %>
-        <% end %>
-      </div>
+    <div class="super_container">
+      <% if trainee_signed_in? || trainer_signed_in? %>
+      <%= render "layouts/header" %>
+        <%= yield %>
+      <%= render "layouts/footer" %>
+      <% else %>
+        <%= yield %>
+      <% end %>
     </div>
   </body>
 </html>

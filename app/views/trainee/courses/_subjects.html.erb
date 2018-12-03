@@ -1,7 +1,7 @@
 <% @course_of_trainee.trainee_subjects.each do |trainee_subject| %>
   <h2><%= link_to trainee_subject.course_subject.subject.name, trainee_course_subject_path(@course, trainee_subject.subject) %>
   </h2>
-    <p><%= truncate(trainee_subject.subject.instruction, length: 90) %></p>
+    <p><%= truncate(trainee_subject.subject.instruction, length: 200) %></p>
     <% if trainee_subject.course_subject.finish? %>
     <%= t".status: "%><%= trainee_subject.course_subject.status %>
       <% if trainee_subject.score.present? %>

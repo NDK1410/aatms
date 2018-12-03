@@ -7,6 +7,12 @@ en:
         list_default_task: "List Task: "
     courses:
       show:
+        courses: "Courses"
+        decription: "Description"
+        trainer: "Trainer: "
+        trainee: "Trainee: "
+        schedule: "Schedule:"
+        home: "Home"
         member: " Members"
   trainer:
     assign_trainees:
@@ -40,9 +46,16 @@ en:
       index:
         list_subject: "List Subject"
         new_course: "New Course"
-        trainer: " Trainer: "
         member: " Members"
         finish: "Finish"
+        courses: "Courses"
+      show:
+        courses: "Courses"
+        decription: "Description"
+        trainer: "Trainer: "
+        trainee: "Trainee: "
+        schedule: "Schedule:"
+        home: "Home"
     subjects:
       show:
         list_task: "List Task: "
@@ -50,3 +63,17 @@ en:
     header:
       search: "Search..."
       go: "Go"
+      awesome: "Awesome"
+      academy: "Academy"
+      home: "Home"
+    footer:
+      aim: "Framgia Awesome Academy là một trung tâm đào tạo của công ty Framgia Việt Nam, hệ thống đào tạo theo chuẩn quốc tế được chứng nhận bởi IC Agile và Ruby Association.
+
+
+Chúng tôi mong muốn sẽ trở thành nôi đào tạo và chắp cánh cho sự phát triển toàn diện của các lập trình viên trong tương lai. "
+      awesome: "Awesome"
+      academy: "Academy"
+      email: "Email: Info@Awesome-Academy.com"
+      phone: "Phone: (024)32072555"
+      address: "Address: Tầng 11 Handico Tower khu đô thị mới Mễ Trì Hạ, đường Phạm Hùng, quận Nam Từ Liêm, Hà Nội"
+      contact: "Contact:"

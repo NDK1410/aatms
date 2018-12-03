@@ -1,45 +1,88 @@
-<div class="super_container">
+<!-- Menu -->
+
+  <div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
+    <div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
+    <div class="search">
+      <form action="#" class="header_search_form menu_mm">
+        <input type="search" class="search_input menu_mm" placeholder="Search" required="required">
+        <button class="header_search_button d-flex flex-column align-items-center justify-content-center menu_mm">
+          <i class="fa fa-search menu_mm" aria-hidden="true"></i>
+        </button>
+      </form>
+    </div>
+    <nav class="menu_nav">
+      <ul class="menu_mm">
+        <li class="menu_mm"><a href="index.html"><%= t".home" %></a></li>
+      </ul>
+    </nav>
+  </div>
+  
+  <!-- Home -->
+
+  <div class="home">
+    <div class="breadcrumbs_container">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="breadcrumbs">
+              <ul>
+                <li><%= t".courses" %></li>
+                <li><%= @course.name %></li></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>      
+  </div>
+
+  <!-- Course -->
+
+  <div class="course">
     <div class="container">
       <div class="row">
+
+        <!-- Course -->
+        <div class="col-lg-8">
+          
+          <div class="course_container">
             <div class="course_title"><%= @course.name %></div>
+            <div class="course_info d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
+
+              <!-- Course Info Item -->
+              <div class="course_info_item">
+                <div class="course_info_title"><%= t".trainer" %></div>
+                <div class="course_info_text"></div>
+              </div>
+
+              <!-- Course Info Item -->
+              <div class="course_info_item">
+                <div class="course_info_title"><%= t".trainee" %></div>
+                <div class="rating_r rating_r_4"></div>
+              </div>
+
+              <!-- Course Info Item -->
+              <div class="course_info_item">
+                <div class="course_info_title"><%= t".schedule" %></div>
+                <div class="course_info_text"></div>
+              </div>
+
+            </div>
+
             <!-- Course Image -->
-            <div class="course_image"><%= image_tag @course.image_url.to_s %></div>
-            <div class="course_info"></div>
+            <div class="course_image"><%= image_tag "course_1.jpg"%></div>
+
             <!-- Course Tabs -->
-            <div class="course_tabs_container">
-              <div class="tab_panels">
-                <!-- Description -->
-                <div class="tab_panel active">
-                  <div class="tab_panel_title"></div>
-                    <div class="tab_panel_content">
-                      <div class="tab_panel_text">
-                        <h3><%= @course.description %></h3>
-                        <hr>
-                        <%= render "subjects" %>
-                      </div>
-                    </div>
-                  <button id="myBtn" data-toggle="modal" data-target="#myModal10">
-                    <div class="course_info">
-                      <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                      <span><%= @course.trainers.count + @course.trainees.count %><%= t(".member")%></span>
-                    </div>
-                  </button>
-                  <div id="myModal10" class="modal">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <span class="close">&times;</span>
-                        </div>
-                        <div class="modal-body">
-                          <%= render "trainers" %>
-                          <hr>
-                          <%= render "trainees" %>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+            <div class="tab_panel_title"><%= t".description" %></div>
+            <div class="tab_panel_content">
+              <div class="tab_panel_text">
+                <p><%= @course.description %></p>
+                <hr>
+                <%= render "subjects" %>
               </div>
             </div>
+          </div>
+        </div>
       </div>
     </div>
-</div>
+  </div>

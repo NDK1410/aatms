@@ -1,38 +1,109 @@
-<div>
-  <%= link_to (t".edit_course"), edit_trainer_course_path(@course), class: "btn btn-info" %>
-  <% if @course.start? %>
-    <%= link_to @course.status, trainer_course_finish_course_path(@course.id),:method => :patch, class: "btn btn-primary" %>
-  <% elsif @course.training? %>
-    <button type="button" class="btn btn-warning"><%=@course.status %> ... </button>
-    <%= link_to (t".finish"), trainer_course_finish_course_path(@course.id),:method => :patch, class: "btn btn-success" %>
-  <% else %>
-    <button type="button" class="btn btn-danger"><%= @course.status %>ED </button>
-    <i class="fa fa-check-circle" style="font-size:25px;color:green"></i>
-  <% end %>
+<!-- Menu -->
+
+<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
+  <div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
+  <div class="search">
+    <form action="#" class="header_search_form menu_mm">
+      <input type="search" class="search_input menu_mm" placeholder="Search" required="required">
+      <button class="header_search_button d-flex flex-column align-items-center justify-content-center menu_mm">
+        <i class="fa fa-search menu_mm" aria-hidden="true"></i>
+      </button>
+    </form>
+  </div>
+  <nav class="menu_nav">
+    <ul class="menu_mm">
+      <li class="menu_mm"><a href="index.html"><%= t".home" %></a></li>
+    </ul>
+  </nav>
 </div>
-<div class="col col-md-7">
-  <div class="super_container">
+
+
+  
+  <!-- Home -->
+
+  <div class="home">
+    <div class="breadcrumbs_container">
       <div class="container">
         <div class="row">
-          <div class="course_title"><%= @course.name %></div>
-          <div class="course_image"><%= image_tag @course.image_url.to_s %></div>
-          <div class="course_info"></div>
-          <div class="course_tabs_container">
-            <div class="tab_panels">
-              <div class="tab_panel_content">
-                <div class="tab_panel_text">
-                  <h3><%= @course.description %></h3>
-                  <hr>
-                  <%= render "subjects" %>
-                </div>
+          <div class="col">
+            <div class="breadcrumbs">
+              <ul>
+                <li><%= t".courses" %></li>
+                <li><%= @course.name %></li></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>      
+  </div>
+
+  <!-- Course -->
+
+  <div class="course">
+    <div class="container">
+      <div class="row">
+
+        <!-- Course -->
+        <div class="col-lg-8">
+          
+          <div class="course_container">
+            <div class="course_title"><%= @course.name %></div>
+            <div>
+              <%= link_to (t".edit_course"), edit_trainer_course_path(@course), class: "btn btn-info" %>
+              <% if @course.start? %>
+                <%= link_to @course.status, trainer_course_finish_course_path(@course.id),:method => :patch, class: "btn btn-primary" %>
+              <% elsif @course.training? %>
+                <button type="button" class="btn btn-warning"><%=@course.status %> ... </button>
+                <%= link_to (t".finish"), trainer_course_finish_course_path(@course.id),:method => :patch, class: "btn btn-success" %>
+              <% else %>
+                <button type="button" class="btn btn-danger"><%= @course.status %>ED </button>
+                <i class="fa fa-check-circle" style="font-size:25px;color:green"></i>
+              <% end %>
+            </div>
+            <div class="course_info d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
+
+              <!-- Course Info Item -->
+              <div class="course_info_item">
+                <div class="course_info_title"><%= t".trainer" %></div>
+                <div class="course_info_text"></div>
+              </div>
+
+              <!-- Course Info Item -->
+              <div class="course_info_item">
+                <div class="course_info_title"><%= t".trainee" %></div>
+                <div class="rating_r rating_r_4"></div>
+              </div>
+
+              <!-- Course Info Item -->
+              <div class="course_info_item">
+                <div class="course_info_title"><%= t".schedule" %></div>
+                <div class="course_info_text"></div>
+              </div>
+
+            </div>
+
+            <!-- Course Image -->
+            <div class="course_image"><%= image_tag "course_1.jpg"%></div>
+            <!-- <div class="course_image"><%= image_tag @course.image_url.to_s %></div> -->
+
+            <!-- Course Tabs -->
+            <div class="tab_panel_title"><%= t".description" %></div>
+            <div class="tab_panel_content">
+              <div class="tab_panel_text">
+                <p><%= @course.description %></p>
+                <hr>
+                <%= render "subjects" %>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
   </div>
 </div>
-<div class="col col-md-5">
+
+<div class="col col-md-4">
   <div class="container">
     <div class="container-fluid">
       <div class="row">

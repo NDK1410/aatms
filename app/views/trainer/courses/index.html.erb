@@ -1,45 +1,87 @@
-<div class="super_container">
-  <div class="courses">
+<!-- Menu -->
+
+<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
+  <div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
+  <div class="search">
+    <form action="#" class="header_search_form menu_mm">
+      <input type="search" class="search_input menu_mm" placeholder="Search" required="required">
+      <button class="header_search_button d-flex flex-column align-items-center justify-content-center menu_mm">
+        <i class="fa fa-search menu_mm" aria-hidden="true"></i>
+      </button>
+    </form>
+  </div>
+  <nav class="menu_nav">
+    <ul class="menu_mm">
+      <li class="menu_mm"><a href="index.html"><%= t".home" %></a></li>
+    </ul>
+  </nav>
+</div>
+<!-- Home -->
+
+<div class="home">
+  <div class="breadcrumbs_container">
     <div class="container">
-      <% if !params[:q] %>
-        <%= link_to t(".list_subject"), constructor_subjects_path, class:"btn btn-info" %>
-        <%= link_to t(".new_course"), new_trainer_course_path, class:"btn btn-primary" %>
-      <% else %>
-        <h2 class="title-search"><%= @title_search %></h2>
-      <% end %>
       <div class="row">
-        <% @courses.each do |course| %>
-        <div class="col-lg-6 course_col">
-          <div class="course">
-            <div class="course_image"><%= link_to (image_tag course.image_url.to_s), trainer_course_path(course) %></div>
-            <div class="course_body">
-              <h3 class="course_title"><%= link_to course.name, trainer_course_path(course) %></h3>
-              <div class="course_teacher"><%= t(".trainer")%><%= course.trainers.name %></div>
-              <hr>
-              <div class="course_text">
-                <p><%= course.description.truncate(209) %></p>
-              </div>
-            </div>
-            <div class="course_footer">
-              <div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
-                <div class="course_info">
-                  <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                  <span><%= course.trainers.count + course.trainees.count %><%= t(".member")%></span>
-                </div>
-              </div>
-              <% if course.start? %>
-                <%= link_to course.status, trainer_course_finish_course_path(course.id),:method => :patch,remote: true, class: "btn btn-primary" %>
-              <% elsif course.training? %>
-                <button type="button" class="btn btn-warning"><%=course.status %> ... </button>
-                <%= link_to t(".finish"), trainer_course_finish_course_path(course.id),:method => :patch,remote: true, class: "btn btn-success" %>
-              <% else %>
-                <button type="button" class="btn btn-danger"><%= course.status %>ED </button>
-                <i class="fa fa-check-circle" style="font-size:25px;color:green"></i>
-              <% end %>
-            </div>
+        <div class="col">
+          <div class="breadcrumbs">
+            <ul>
+              <li><%= t".courses" %></li>
+              <li></li>
+            </ul>
           </div>
         </div>
-        <%end%>
+      </div>
+    </div>
+  </div>      
+</div>
+
+<!-- Courses -->
+
+<div class="container">
+<div>
+  <% if !params[:q] %>
+    <%= link_to t(".list_subject"), constructor_subjects_path, class:"btn btn-info" %>
+    <%= link_to t(".new_course"), new_trainer_course_path, class:"btn btn-primary" %>
+  <% else %>
+    <h2 class="title-search"><%= @title_search %></h2>
+  <% end %>
+</div>
+  <div class="row">
+    <!-- Courses Main Content -->
+    <div class="col-lg-8">
+      <div class="courses_container">
+        <div class="row courses_row">
+          <!-- Course -->
+          <% @courses.each do |course| %>
+          <div class="col-lg-6 course_col">
+            <div class="each_course">
+              <div class="course_image"><%= image_tag "course_1.jpg"%></div>
+              
+              <div class="course_body">
+                <h3 class="course_title"><%= link_to course.name, trainer_course_path(course) %></h3>
+                <hr>
+                <div class="course_text">
+                  <p><%= course.description.truncate(195) %></p>
+                  <br>
+                  <div class="course_members">
+                    <i class="fa fa-graduation-cap" aria-hidden="true" style="color: #ffc80a;"></i>
+                    <span><%= course.trainers.count + course.trainees.count %> <%= t(".member")%></span>
+                  </div>
+                </div>
+              </div>
+<!--             <% if course.start? %>
+              <%= link_to course.status, trainer_course_finish_course_path(course.id),:method => :patch,remote: true, class: "btn btn-primary" %>
+            <% elsif course.training? %>
+              <button type="button" class="btn btn-warning"><%=course.status %> ... </button>
+              <%= link_to t(".finish"), trainer_course_finish_course_path(course.id),:method => :patch,remote: true, class: "btn btn-success" %>
+            <% else %>
+              <button type="button" class="btn btn-danger"><%= course.status %>ED </button>
+              <i class="fa fa-check-circle" style="font-size:25px;color:green"></i>
+            <% end %> -->
+            </div>
+          </div>
+          <%end%>     
+        </div>
       </div>
     </div>
   </div>

@@ -1,28 +1,92 @@
-<div class="header" >
-  <% if trainee_signed_in? %>
-    <li><%= link_to "logout", destroy_trainee_session_path, method: :delete, class: "link_to" %></li>
-  	<li><%= render partial: 'notifications/notification_center' , locals:{notifications: @notifications , notifications_unread: @notifications_unread,
-        current_course: @current_course} %></li>
-    <%= render "layouts/left_bar" %>
-  <% elsif trainer_signed_in? %>
-    <li><%= link_to "logout", destroy_trainer_session_path, method: :delete,class: "link_to" %></li>
-        <% if params[:action] == "show" && params[:controller] != "constructor/subjects"%>
-        <%= render partial: 'notifications/notification_center' , locals:{notifications: @notifications} %></li>
-        <%end%>
-    <%= form_with url: trainer_courses_path, local: true, method: :get, html: { class: "form-inline my-2 my-lg-0" } do |f| %>
-      <%= f.text_field :q, placeholder: t(".search"), data: { behavior: "autocomplete" }, class: "form-control mr-sm-2" %>
-      <%= f.button t(".go"), class: "btn btn-outline-success my-2 my-sm-0" %>
-    <% end %>
-    <%= render "layouts/left_bar" %>
-  <% end %>
+<header class="header">
+  <!-- Top Bar -->
+  <div class="top_bar">
+      <div class="top_bar_container">
+          <div class="container">
+            <div>
+              <% if trainee_signed_in? %>
+                  <%if params[:action] == "show"%>
+                  <li><%= render partial: 'notifications/notification_center' , locals:{notifications: @notifications , notifications_unread: @notifications_unread,
+                    current_course: @current_course} %></li>
+                <%end%>
+              <% elsif trainer_signed_in? %>
+                  <% if params[:action] == "show" && params[:controller] != "constructor/subjects"%>
+                  <%= render partial: 'notifications/notification_center' , locals:{notifications: @notifications} %></li>
+                  <%end%>
+              <% end %>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
+                      <div class="top_bar_login ml-auto">
+                        <div class="login_button">
+                        <% if trainee_signed_in? %>
+                          <%= link_to "Logout", destroy_trainee_session_path, method: :delete, class: "link_to" %>
+                        <% elsif trainer_signed_in? %>
+                          <%= link_to "Logout", destroy_trainer_session_path, method: :delete, class: "link_to" %>
+                        <% end %>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+      </div>              
+  </div>
 
-</div>
-<% if trainee_signed_in? %>
+  <!-- Header Content -->
+  <div class="header_container">
+      <div class="container">
+          <div class="row">
+              <div class="col">
+                  <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                      <div class="logo_container">
+                          <a href="#">
+                              <div class="logo_text"><%= t".awesome" %><span><%= t".academy" %></span></div>
+                          </a>
+                      </div>
+                      <nav class="main_nav_contaner ml-auto">
+                          <ul class="main_nav">
+                              <li><a href="index.html"><%= t".home" %></a></li>
+                          </ul>
+                          <div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
+
+                          <!-- Hamburger -->
+                          <div class="hamburger menu_mm">
+                              <i class="fa fa-bars menu_mm" aria-hidden="true"></i>
+                          </div>
+                      </nav>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Header Search Panel -->
+  <div class="header_search_container">
+      <div class="container">
+          <div class="row">
+              <div class="col">
+                  <div class="header_search_content d-flex flex-row align-items-center justify-content-end">
+                      <form action="#" class="header_search_form">
+                          <input type="search" class="search_input" placeholder="Search" required="required">
+                          <button class="header_search_button d-flex flex-column align-items-center justify-content-center">
+                              <i class="fa fa-search" aria-hidden="true"></i>
+                          </button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>          
+  </div>          
+</header>
+
+<% if trainee_signed_in? && params[:action] == "show" %>
     <script type="text/javascript">
         $(document).ready(function()
     {
         if ('<% trainee_signed_in? %>' == true) {
-            if ('<%= @notifications_unread.count%>' == 0)
+            if ('<%= @notifications_unread.count%>' == 0) 
             {
                 $("#notification-counter").hide();
             }
@@ -38,19 +102,18 @@
             })
             return false;
         });
-
         $(document).click(function()
         {
             $("#notificationContainer").hide();
         });
-
-
+     
+     
         $("#notificationContainer").click(function()
         {
             return false;
         });
     });
-
+        
     </script>
 <% elsif trainer_signed_in? %>
     <script type="text/javascript">
@@ -63,19 +126,17 @@
             $("#notification-counter").hide();
             return false;
         });
-
         $(document).click(function()
         {
             $("#notificationContainer").hide();
         });
-
-
+     
+     
         $("#notificationContainer").click(function()
         {
             return false;
         });
     });
-
+        
     </script>
 <%end%>
-

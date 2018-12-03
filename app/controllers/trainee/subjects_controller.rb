@@ -6,6 +6,7 @@ class Trainee::SubjectsController < ApplicationController
     redirect_to root_url and return unless @current_subject
     @tasks_of_subject = @current_subject.trainee_tasks
     @finish_tasks = @tasks_of_subject.select{|f| f.status== "finish"}
+    byebug
   end
 
   def update
