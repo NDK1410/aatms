@@ -1,12 +1,11 @@
-<div style="float:right; margin-top: -20px">
+<div style="float:right; margin-top: -20px; z-index: 2">
   <% if course_subject.finish? %>
     <button type="button" class="btn btn-danger"><%= course_subject.status %>ED </button>
         <i class="fa fa-check-circle" style="font-size:25px;color:green"></i> 
-
     </br>    
     <%= link_to "Rate students" , trainer_course_subject_rate_students_path(course_subject.course, course_subject.subject), class: "btn btn-success" %>
   <% else %>
-    <%= form_for [:trainer,@course] , url: trainer_course_course_subject_path(@course), remote: true do |f|%>
+    <%= form_for [:trainer,@course] , url: trainer_course_course_subject_path(@course,course_subject), method: :put, remote: true do |f|%>
       <%= f.hidden_field :course_subject_id, value: course_subject.id %>
       <%= f.hidden_field :subject_status , value:course_subject.status %>
       <%= f.button course_subject.status, class: "btn btn-primary", type:"sumbit" %>

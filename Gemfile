@@ -25,7 +25,6 @@ gem 'webpacker', '~> 3.5'
 gem 'jquery-rails'
 gem "ransack"
 
-
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end

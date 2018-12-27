@@ -1,0 +1,31 @@
+<div class="course">
+  <div class="container">
+    <div class="row">
+    	<div class="col-lg-12">
+        <div class="course_container">
+					<p>asdasdsds</p>
+					<p>asdasdsds</p>
+					<p></p>
+					<div class="course_title">Your Tests:</div>
+					<%= form_for :trainee_test do |f| %>
+					  <%= f.collection_select :course_subject_id, @course_subjects,:id,:name, include_blank: true %>
+					<%= f.submit "Create Test", class: "btn-primary btn-lg" %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<%= form_for :trainee_test do |f| %>
+<select style="height: 50px">
+  <option value="" disabled selected>Choose subject to create test...</option>
+  	<% @course_subjects.each do |course_subject| %>
+    <option>
+  		<%= course_subject.name %>
+    </option>
+  <% end %>
+</select>
+<%= f.submit "Create Test", class: "btn-primary btn-lg" %>
+<% end %>

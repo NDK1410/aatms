@@ -19,7 +19,6 @@ en:
         schedule: "Schedule:"
         home: "Home"
         member: " Members"
-      side_bar:
         time_default: "%d/%m/%Y"
         start_date: "Start Date"
         finish_date: "Finish Date"

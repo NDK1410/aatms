@@ -1,0 +1,21 @@
+<p>asdasdsds</p>
+<p>asdasdsds</p>
+<p>asdasdsds</p>
+<p>asdasdsds</p>
+<p>asdasdsds</p>
+<p>asdasdsds</p>
+<p>asdasdsds</p>
+<p>asdasdsds</p>
+<p>asdasdsds</p>
+<%= form_tag %>
+<select style="height: 50px">
+  <option value="" disabled selected>Choose subject to create test...</option>
+  <% @course_subjects.each do |course_subject| %>
+    <option value="course_subject.id"><%= course_subject.name %></option>
+  <% end %>
+</select>
+<%= button_tag "Create", class: "btn-primary btn-lg" %>
+<p>asdasdsds</p>
+<p>asdasdsds</p>
+<p>asdasdsds</p>
+<%= form_for [:test, @course] , url: test_course_suject_path (course)

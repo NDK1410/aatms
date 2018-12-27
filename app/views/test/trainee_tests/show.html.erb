@@ -1,0 +1,21 @@
+<p>asdfhggngfgfdgdfgfd</p>
+<p>asdfhggngfgfdgdfgfd</p>
+<p>asdfhggngfgfdgdfgfd</p>
+<p>asdfhggngfgfdgdfgfd</p>
+<p>asdfhggngfgfdgdfgfd</p>
+<p>asdfhggngfgfdgdfgfd</p>
+<p>asdfhggngfgfdgdfgfd</p>
+<p>asdfhggngfgfdgdfgfd</p>
+<p>asdfhggngfgfdgdfgfd</p>
+<p>asdfhggngfgfdgdfgfd</p>
+<% @subjects.each do |subject| %>
+  <% subject.subject_test.test_questions.shuffle.each_with_index do |test_question, index| %>
+	 	<p><strong><%= index + 1 %>.&ensp;<%= test_question.question %></strong></p>
+	 	<% test_question.test_answers.shuffle.each do |test_answer| %>
+	 	<p>&ensp;<%= check_box_tag "[test_answer_ids][]", test_answer.id %>&ensp;
+	 	<%= test_answer.answer %></p>
+	 	<%end%>
+  <% end %>
+<% end %>
+
+<%= button_tag "Done", class: "btn btn-primary", remote: true %>

@@ -1,0 +1,10 @@
+<p>dasdsa</p>
+<p>sffdsfd</p>
+<p>dfdf</p>
+<p>sdfdsfd</p>
+<p>fdsfdsf</p>
+<p>sdfd</p>
+<%= form_for :trainee_test do |f| %>
+	<%= f.collection_select :course_subject_id, @course_subjects,:id,:name, include_blank: true %>
+	<%= f.submit "Create Test", class: "btn-primary btn-lg" %>
+<% end %>

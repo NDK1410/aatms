@@ -5,6 +5,8 @@ class TraineeSubject < ApplicationRecord
   belongs_to :course_subject
   belongs_to :course_trainee
   has_many :trainee_tasks, dependent: :destroy
+  has_many :trainee_tests
+  has_many :subject_tests, through: :trainee_tests
   enum score: {worst:1 , bad: 2, normal: 3, good: 4 , excellent: 5 }
 
   
