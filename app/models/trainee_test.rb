@@ -1,4 +1,6 @@
 class TraineeTest < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: [:slugged, :finders]
   belongs_to :subject
   belongs_to :course_trainee
   has_many :trainee_questions

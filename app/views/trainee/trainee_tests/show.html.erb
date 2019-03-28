@@ -1,0 +1,47 @@
+<div class="home">
+  <div class="breadcrumbs_container">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="breadcrumbs">
+            <ul>
+              <li><%= link_to (t".test"), test_course_trainee_tests_path %></li>
+              <li><%= @test.title %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>      
+</div>
+<div class="course">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="course_container">
+          <div class="course_title"><%= @test.subject.name %></div>
+          <hr>
+          <% @test.trainee_questions.each_with_index do |trainee_question, index| %>
+          <div class="tab_panel_content">
+            <div class="tab_panel_title">
+              <%= index + 1 %>.&ensp;<%= trainee_question.test_question.question %>
+            </div>
+            <div class="tab_panel_text">
+              <% trainee_question.trainee_answers.each do |trainee_answer| %>
+                <%if trainee_answer.status == "wrong"%>
+                  <p class="text-danger"><%= trainee_answer.answer %><span class="label label-danger" style="float:right"><%= t".wrong" %></span></p>
+                <%elsif trainee_answer.status == "correct" %>
+                  <p class="text-info"><%= trainee_answer.answer %><span class="label label-primary" style="float:right"><%= t".correct" %></span></p>
+                <% else %>
+                  <p><%= trainee_answer.answer %></p>
+                <%end%>
+              <% end %>
+            </div>
+            <hr>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

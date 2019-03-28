@@ -5,8 +5,8 @@
         <div class="col">
           <div class="breadcrumbs">
             <ul>
-              <li><%= link_to (t".test"), trainee_tests_path %></li>
-              <li><%= @test.subject.name %></li>
+              <li><%= link_to (t".test"), test_course_trainee_tests_path %></li>
+              <li><%= @test.title %></li>
             </ul>
           </div>
         </div>
@@ -16,7 +16,7 @@
 </div>
 <div class="course">
   <div class="container">
-    <%= form_with url: trainee_test_path(@test), id: "testform", method: :put do |f| %>
+    <%= form_with url: test_course_trainee_test_path(@training_course, @test), id: "testform", method: :put do |f| %>
     <div class="row">
       <div class="col-lg-9">
         <div class="course_container">
@@ -29,23 +29,13 @@
             </div>
             <div class="tab_panel_text">
               <% trainee_question.trainee_answers.each do |trainee_answer| %>
-                <%if trainee_answer.status == "wrong"%>
-                  <p class="text-danger"><%= trainee_answer.answer %><span class="label label-danger" style="float:right"><%= t".wrong" %></span></p>
-                <%elsif trainee_answer.status == "correct" %>
-                  <p class="text-info"><%= trainee_answer.answer %><span class="label label-primary" style="float:right"><%= t".correct" %></span></p>
-                <%else%>
-                  <p><%= check_box_tag "[trainee_answer_ids][]", trainee_answer.id %>&ensp;<%= trainee_answer.answer %></p>
-                <%end%>
+                <p><%= check_box_tag "[trainee_answer_ids][]", trainee_answer.id %>&ensp;<%= trainee_answer.answer %></p>
               <% end %>
             </div>
             <hr>
           </div>
           <% end %>
-          <% if @test.score.present? %>
-            <button class="btn btn-primary" disabled><%= t".Done" %></button>
-          <%else%>
             <%= f.submit (t".done"), class: "btn btn-primary", remote: true %>
-          <%end%>
         </div>
       </div>
       <%= render "timer" %>

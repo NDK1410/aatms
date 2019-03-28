@@ -37,7 +37,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% @all_tests.each do |trainee_test| %>
+                <% @trainee_tests.each do |trainee_test| %>
                 <tr>
                   <td><%= trainee_test.created_at.strftime(t".time") %></td>
                   <td><%= trainee_test.subject.name %></td>
@@ -47,9 +47,9 @@
                   <td><%= trainee_test.score %></td>
                   <td>
                     <% if trainee_test.score.blank? %>
-                      <%= link_to (t".test"), trainee_test_path(trainee_test), class: "btn-primary btn-lg" %>
+                      <%= link_to (t".test"), test_course_trainee_test_path(@training_course, trainee_test), class: "btn-primary btn-lg" %>
                     <% elsif trainee_test.score.present? %>
-                      <%= link_to (t".completed"), trainee_test_path(trainee_test), class: "btn-success btn-lg" %>
+                      <%= link_to (t".completed"), trainee_course_trainee_test_path(@training_course, trainee_test), class: "btn-success btn-lg" %>
                     <%end%>
                   </td>
                 </tr>

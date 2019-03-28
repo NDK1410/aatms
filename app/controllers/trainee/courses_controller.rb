@@ -5,6 +5,7 @@ class Trainee::CoursesController < ApplicationController
     @subjects = @course.subjects
     @trainee_of_courses = @course.trainees
     @trainer_of_courses = @course.trainers
+    @current_course = current_trainee.courses.find_by status: 1
   end
 
   private

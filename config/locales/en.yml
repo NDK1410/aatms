@@ -1,27 +1,32 @@
 en:
   search_for: "Search for: %{search_param}"
   all_course: "All courses"
-  trainee_tests:
-    index:
-      tests: "All Tests"
-      create: "Create Test"
-      time: "%H:%M, %d %B %Y"
-      created_at: "Created At"
-      test: "Test"
-      completed: "Completed"
-      duration: "Duration"
-      questions: "Questions"
-      spent_time: "Spent Time"
-      score: "Score"
-      status: "Status"
-      view: "View"
-      test_time: "20:00"
-    show:
-      test: "All Tests"
-      wrong: "Wrong Answer"
-      correct: "Correct Answer"
-      done: "Done"
+  test:
+    trainee_tests:
+      index:
+        tests: "All Tests"
+        create: "Create Test"
+        time: "%H:%M, %d %B %Y"
+        created_at: "Created At"
+        test: "Test"
+        completed: "Completed"
+        duration: "Duration"
+        questions: "Questions"
+        spent_time: "Spent Time"
+        score: "Score"
+        status: "Status"
+        view: "View"
+        test_time: "20:00"
+      show:
+        test: "All Tests"
+        done: "Done"
   trainee:
+    trainee_tests:
+      show:
+        test: "All Tests"
+        wrong: "Wrong Answer"
+        correct: "Correct Answer"
+        done: "Done"
     subjects:
       side_bar:
         time_default: "%d/%m/%Y"

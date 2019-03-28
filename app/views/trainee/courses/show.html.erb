@@ -54,6 +54,7 @@
           <div class="tab_panel_content">
             <div class="tab_panel_text">
               <p><%= @course.description %></p>
+              <p><%= link_to "Test", test_course_trainee_tests_path(@current_course) %></p>
               <hr>
               <%= render "subjects" %>
             </div>
