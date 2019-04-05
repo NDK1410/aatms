@@ -16,4 +16,10 @@ class TraineeTest < ApplicationRecord
       self.update_attributes!(score: test_score)
     end
   end
+
+  def update_score(params_score)
+    ActiveRecord::Base.transaction do
+      self.update_attributes!(score: params_score)
+    end
+  end
 end

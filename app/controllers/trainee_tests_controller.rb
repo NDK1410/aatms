@@ -8,7 +8,7 @@ class TraineeTestsController < ApplicationController
   end
 
   def show
-    @test = TraineeTest.find_by params[:id]
+    @test = TraineeTest.find params[:id]
   end
 
   def create
@@ -33,7 +33,7 @@ class TraineeTestsController < ApplicationController
 
   def update
     respond_to do |format|
-      @test = TraineeTest.find_by params[:id]
+      @test = TraineeTest.find params[:id]
       @test.update_test(params[:trainee_answer_ids])
       format.html {redirect_to trainee_test_path(@test)}
     end

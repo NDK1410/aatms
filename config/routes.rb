@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_for :trainees, :skip => [:registrations], controllers: { omniauth_callbacks: 'trainees/omniauth_callbacks' }
   devise_for :trainers, :skip => [:registrations]
 
-  resources :trainee_tests
+  resources :trainee_tests, only:[:show, :index, :update, :create]
   post "/trainee_tests", to: "trainee_tests#create"
 
   match "/trainees/:id/finish_signup", to: "trainees#finish_signup", via: [:get, :patch], as: :finish_signup
@@ -21,6 +21,8 @@ Rails.application.routes.draw do
         resources :rate_students
         resource :add_task, only:[:update]
       end
+      resources :trainee_tests, only:[:index, :show, :edit]
+      patch "/trainee_tests/:id/edit", to: "trainee_tests#edit"
       resources :assign_trainees
       resources :assign_trainers
       resources :course_subjects

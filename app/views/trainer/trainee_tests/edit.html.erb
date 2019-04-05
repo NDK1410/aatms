@@ -1,0 +1,32 @@
+<div class="home">
+  <div class="breadcrumbs_container">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="breadcrumbs">
+            <ul>
+              <li><%= link_to (t".test"), trainee_tests_path %></li>
+              <li><%= @test.subject.name %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>      
+</div>
+<div class="course">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="course_container">
+          <div class="course_title">Edit Score</div>
+            <%= form_for @test, url: edit_trainer_course_trainee_test_path(@course, @test), method: :patch do |f| %>
+              <p><%= f.label :score %></p>
+              <%= f.text_field :score %>
+              <%= f.submit "Edit Score", class: "btn-md btn-primary" %>
+            <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

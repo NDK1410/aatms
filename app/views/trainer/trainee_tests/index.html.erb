@@ -1,0 +1,64 @@
+<div class="home">
+  <div class="breadcrumbs_container">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="breadcrumbs">
+            <ul>
+              <li><%= t".tests" %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>      
+</div>
+<div class="course">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="course_container">
+          <div class="course_title">All Tests In Course</div>
+          <div class="table-responsive", style="padding-top: 50px;">
+            <table class="table">
+              <thead>
+                <tr class="table-dark text-dark">
+                  <th><%= t".name" %></th>
+                  <th><%= t".created_at" %></th>
+                  <th><%= t".test" %></th>
+                  <th><%= t".duration" %></th>
+                  <th><%= t".questions" %></th>
+                  <th><%= t".spent_time" %></th>
+                  <th><%= t".score" %></th>
+                  <th><%= t".status" %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @course.course_trainees.each do |course_trainee| %>
+                <% course_trainee.trainee_tests.each do |trainee_test| %>
+                <tr>
+                  <td><%= course_trainee.trainee.name %></td>
+                  <td><%= trainee_test.created_at.strftime(t".time") %></td>
+                  <td><%= trainee_test.subject.name %></td>
+                  <td><%= t".test_time" %></td>
+                  <td><%= trainee_test.trainee_questions.count %></td>
+                  <td></td>
+                  <td><%= trainee_test.score %></td>
+                  <td>
+                    <% if trainee_test.score.blank? %>
+                      <%= button_to (t".test"), class: "btn-primary btn-lg" %>
+                    <% elsif trainee_test.score.present? %>
+                      <%= link_to (t".completed"), trainer_course_trainee_test_path(@course, trainee_test), class: "btn-success btn-lg" %>
+                    <%end%>
+                  </td>
+                </tr>
+                <% end %>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
